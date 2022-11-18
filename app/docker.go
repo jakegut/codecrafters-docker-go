@@ -106,7 +106,6 @@ func (docker *DockerAPI) DownloadImage() ([]string, error) {
 		return nil, err
 	}
 	var paths []string
-	fmt.Println((*manifest).FsLayers)
 	for _, layer := range manifest.FsLayers {
 		blob := layer.BlobSum
 		path, err := ensureLayerDownloaded(docker, blob)

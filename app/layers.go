@@ -43,8 +43,10 @@ func downloadLayer(docker *DockerAPI, destPath, blobsum string) error {
 	}
 	defer f.Close()
 
-	bar := progressbar.NewOptions64(resp.ContentLength, progressbar.OptionSetWriter(io.Discard))
-	bar.Describe("Downloading...")
+	bar := progressbar.DefaultBytes(
+		resp.ContentLength,
+		"Downloading...",
+	)
 	defer bar.Close()
 	io.Copy(io.MultiWriter(f, bar), resp.Body)
 	return nil

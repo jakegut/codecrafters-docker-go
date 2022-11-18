@@ -47,3 +47,35 @@ You can now execute your program like this:
 ```sh
 mydocker run ubuntu:latest /usr/local/bin/docker-explorer echo hey
 ```
+
+Final output:
+```sh
+> mydocker run alpine /bin/sh -c '/bin/ls /'
+
+Getting manifest
+Checking /tmp/mydocker/layers/sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4
+Downloading layer 'sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4'
+Downloading... 100% |█████████████████████████████| (32/32 B, 255 kB/s)        
+Checking /tmp/mydocker/layers/sha256:ca7dd9ec2225f2385955c43b2379305acd51543c28cf1d4e94522b3d94cce3ce
+Downloading layer 'sha256:ca7dd9ec2225f2385955c43b2379305acd51543c28cf1d4e94522b3d94cce3ce'
+Downloading... 100% |██████████████████████████| (2.7/2.7 MB, 9.5 MB/s)        
+        Extracting '/tmp/mydocker/layers/sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4'
+        Extracting '/tmp/mydocker/layers/sha256:ca7dd9ec2225f2385955c43b2379305acd51543c28cf1d4e94522b3d94cce3ce'
+bin
+dev
+etc
+home
+lib
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+```

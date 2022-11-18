@@ -24,8 +24,6 @@ func handleError(e error) {
 // Usage: your_docker.sh run <image> <command> <arg1> <arg2> ...
 func main() {
 	// You can use print statements as follows for debugging, they'll be visible when running tests.
-	tmpStd := os.Stdout
-	os.Stdout = nil
 	image := os.Args[2]
 	command := os.Args[3]
 	args := os.Args[4:len(os.Args)]
@@ -46,7 +44,7 @@ func main() {
 	handleError(syscall.Chroot(tmpChroot))
 
 	cmd := exec.Command(command, args...)
-	cmd.Stdout = tmpStd
+	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
 	cmd.SysProcAttr = &syscall.SysProcAttr{
